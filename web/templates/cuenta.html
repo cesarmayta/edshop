@@ -1,20 +1,18 @@
 {% extends 'layout.html' %}
-{% load crispy_forms_tags %}
 {% block content %}
-<h1 class="maincont-ttl">Bienvenido - {{ user.first_name }} {{ user.last_name }}</h1>
+<h1 class="maincont-ttl">Bienvenido - Cliente</h1>
     <ul class="b-crumbs">
         <li><a href="/">Home</a></li>
         <li>Mi Cuenta</li>
     </ul>
-    <h2>{{mensaje}}</h2>
+    <h2>Mensaje</h2>
     <article class="page-cont">
         <div class="page-styling">
             <div class="auth-wrap">
                 <div class="auth-col">
                     <h2>Datos Personales</h2>
-                    <form method="post" action="{% url 'web:actualizarCliente' %}" class="register">
+                    <form method="post" action="#" class="register">
                         {% csrf_token %}
-                        {{ frmCliente|crispy }}
                         <p class="auth-submit">
                             <input type="submit" value="Actualizar Datos">
                         </p>
