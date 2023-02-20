@@ -11,8 +11,9 @@
         <div class="auth-wrap">
             <div class="auth-col">
                 <h2>Login</h2>
-                <form method="post" class="login" action="#">
+                <form method="post" class="login" action="{% url 'web:loginUsuario' %}">
                     {% csrf_token %}
+                    <input type="hidden" name="destino" value="{{destino}}"/>
                     <p>
                         <label for="username">E-mail <span class="required">*</span></label>
                         <input type="text" id="username" name="usuario">
@@ -27,13 +28,13 @@
                         <label for="rememberme">Remember me</label>
                     </p>
                     <p>
-                        <label for="alert-danger">ERROR AL REGISTRARSE</label>
+                        <label for="alert-danger">{{mensajeError}}</label>
                     </p>
                 </form>
             </div>
             <div class="auth-col">
                 <h2>Registro</h2>
-                <form method="post" class="register" action="#">
+                <form method="post" class="register" action="{% url 'web:crearUsuario' %}">
                     {% csrf_token %}
                     <p>
                         <label for="reg_email">Email <span class="required">*</span></label>

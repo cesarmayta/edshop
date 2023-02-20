@@ -1,18 +1,19 @@
 {% extends 'layout.html' %}
 {% block content %}
-<h1 class="maincont-ttl">Bienvenido - Cliente</h1>
+<h1 class="maincont-ttl">Bienvenido - {{user.username }}</h1>
     <ul class="b-crumbs">
         <li><a href="/">Home</a></li>
         <li>Mi Cuenta</li>
     </ul>
-    <h2>Mensaje</h2>
+    <h2>{{mensaje}}</h2>
     <article class="page-cont">
         <div class="page-styling">
             <div class="auth-wrap">
                 <div class="auth-col">
                     <h2>Datos Personales</h2>
-                    <form method="post" action="#" class="register">
+                    <form method="post" action="{% url 'web:actualizarCliente' %}" class="register">
                         {% csrf_token %}
+                        {{frmCliente}}
                         <p class="auth-submit">
                             <input type="submit" value="Actualizar Datos">
                         </p>
