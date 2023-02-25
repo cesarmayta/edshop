@@ -1,0 +1,47 @@
+version: '3.3'
+
+services:
+  web:
+    container_name: edshop.web
+    build: ./app
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./app:/usr/src/app/
+      - ./app/static:/usr/src/app/static
+      - media_volume:/usr/src/app/media
+    ports:
+      - 80:8000
+    depends_on:
+      - mysql
+    env_file:
+      - ./app/.env
+    networks:
+      local_network:
+        ipv4_address: 172.28.1.4
+
+  mysql:
+    image: mysql:latest
+    container_name: edshop.mysql
+    volumes:
+      - db_data:/var/lib/mysql:rw
+      - ./mysql/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    environment:
+      MYSQL_ROOT_PASSWORD: 'qwerty123'
+      MYSQL_DATABASE: 'db_edshop'
+    ports:
+      - "3306:3306"
+    networks:
+      local_network:
+        ipv4_address: 172.28.1.5
+
+volumes:
+  static_volume:
+  media_volume:
+  db_data:
+
+networks:
+  local_network:
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.28.0.0/16
