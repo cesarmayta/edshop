@@ -24,7 +24,6 @@ services:
     container_name: edshop.mysql
     volumes:
       - db_data:/var/lib/mysql:rw
-      - ./mysql/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
     environment:
       MYSQL_ROOT_PASSWORD: 'qwerty123'
       MYSQL_DATABASE: 'db_edshop'

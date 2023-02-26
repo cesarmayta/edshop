@@ -1,0 +1,22 @@
+######### DESPLIEGUE DE PROYECTO EN DIGITALOCEAN CON DOCKER-MACHINE
+
+#acerca de docker machine
+https://docs.docker.com.xy2401.com/machine/overview/
+
+#para instalar docker machine
+https://docs.docker.com.xy2401.com/machine/install-machine/
+
+#para crear una maquina virtual en digital ocean
+docker-machine create -d digitalocean --digitalocean-image=ubuntu-22-04-x64 --digitalocean-access-token=tutoken tumaquina(ejem=edteam)
+
+#para ver maquinas creadas
+docker-machine ls 
+
+#para ingresar a nuestra maquina virtual por ssh
+docker-machine ssh edteamshop
+
+#una vez conectado al servidor debemos clonar nuestro repositorio
+git clone repositorio_github
+
+#luego ejecutaremos
+docker compose up -d
