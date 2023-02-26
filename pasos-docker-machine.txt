@@ -20,3 +20,7 @@ git clone repositorio_github
 
 #luego ejecutaremos
 docker compose up -d
+
+#para ejecutar un comando en un contenedor
+docker exec -it edshop.web python3 manage.py migrate
+docker exec -it edshop.web python3 manage.py createsuperuser
