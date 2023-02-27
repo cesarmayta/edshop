@@ -3,3 +3,4 @@ Pillow
 django-admin-tailwind
 django-paypal
 python-decouple
+gunicorn

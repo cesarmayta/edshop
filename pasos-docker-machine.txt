@@ -7,7 +7,7 @@ https://docs.docker.com.xy2401.com/machine/overview/
 https://docs.docker.com.xy2401.com/machine/install-machine/
 
 #para crear una maquina virtual en digital ocean
-docker-machine create -d digitalocean --digitalocean-image=ubuntu-22-04-x64 --digitalocean-access-token=tutoken tumaquina(ejem=edteam)
+docker-machine create -d digitalocean --digitalocean-image=ubuntu-20-04-x64 --digitalocean-access-token=tutoken tumaquina(ejem=edteam)
 
 #para ver maquinas creadas
 docker-machine ls 
@@ -24,3 +24,7 @@ docker compose up -d
 #para ejecutar un comando en un contenedor
 docker exec -it edshop.web python3 manage.py migrate
 docker exec -it edshop.web python3 manage.py createsuperuser
+docker exec -it edshop.web python3 manage.py collectstatic
+
+#para ingresar al terminal de un contenedor
+docker exec -it edshop.web sh
