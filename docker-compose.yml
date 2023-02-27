@@ -10,7 +10,7 @@ services:
       - ./app/static:/usr/src/app/static
       - media_volume:/usr/src/app/media
     ports:
-      - 80:8000
+      - 3762:3762
     depends_on:
       - mysql
     env_file:
