@@ -24,7 +24,7 @@ services:
       - ./app/static:/usr/src/app/static
       - media_volume:/usr/src/app/media
     ports:
-      - "8090:80"
+      - "80:80"
     depends_on:
       - web
     networks:
